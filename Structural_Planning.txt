@@ -1,0 +1,141 @@
+|------------------------------------------------------------------------------------------------------|
+|--------------------------------------------| Voting App |--------------------------------------------|
+|------------------------------------------------------------------------------------------------------|
+
+
+
+About App:
+
+  In this voting app we have three role based profiles.
+    Admin   - Manages the users and voters.
+    Users   - Users from different state can register in the app who are standing for elections.
+    Voters  - Voters can register and login in the app to vote the users and track the votes live 
+              of the all users(team).
+
+    Admin:
+        CREATE users and voter.
+        UPDATE users and voter info.
+        READ users and voter info and votes only.
+        DELETE users and voter.
+
+    User:
+        CREATE profile.
+        UPDATE profile and pannel info.
+        READ number of votes only.
+        DELETE profile.
+        Vote other users.
+
+    Voters:
+        CREATE profile.
+        UPDATE profile.
+        READ number of votes.
+        DELETE profile.
+        Vote users.
+
+
+    
+Functionality:
+
+    Admin:
+        Self registration.
+        Register users and voters using addhar card and mobile mandatory.
+        Admin won't be able to vote from admin profile.
+        Admin can't modify the votes from admin profile.
+
+    User:
+        Registration using addhar card and mobile mandatory.
+        Verify mobile or aadhar.
+        View the parties with their votes and self party votes.
+        User will be able to vote for other party.
+        Once vote is disable all other voting options.
+        Can update self profile except mobile and aadhar.
+
+    Voter:
+        Registration using addhar card and mobile mandatory.
+        Verify mobile or aadhar.
+        View the parties with their votes.
+        Voter will be able to vote for other party.
+        Once vote is disable all other voting options.
+        Can update self profile except mobile and aadhar.
+
+
+
+Schema:
+
+    Admin ------>   Name = String
+                    Mobile = number
+                    Email = String
+                    State = String
+                    Password = String
+                    Role = String
+
+    User ------>    Name = String
+                    Mobile = number
+                    isVerfied = Boolean
+                    OTP = Number
+                    Email = String
+                    Addhar_No = Number
+                    State = String
+                    Party_Name = String 
+                    Password = String
+                    Role = String
+
+    Voter ------>   Name = String
+                    Mobile = number
+                    isVerfied = Boolean
+                    OTP = Number
+                    Email = String
+                    Addhar_No = Number
+                    State = String
+                    Password = String
+                    Role = String
+
+    Parties ---->   Party_Name = String
+                    Sub_party_Name = String
+                    Vote_counts = Number
+                    State = String
+                    Year = Date
+
+
+
+Routes:
+
+        POST --> /signin -
+        POST --> /signup -
+        GET --> /getCandidatesWithVoteCounts -
+        
+    Admin:
+
+        POST --> /createCandidate -
+        GET --> /getCandidate/:id
+        PUT --> /updateCandidate/:id -
+        DELETE --> /deleteCandidate/:id -
+
+    User:
+        
+        GET --> /getCandidateProfile -
+        PUT --> /updateCandidateProfile -
+        PUT --> /updateCandidatePassword -
+        PUT --> /voteCandidate/:id -
+
+    Voter:
+        
+        GET --> /getVoterProfile -
+        PUT --> /updateVoterProfile -
+        PUT --> /updateVoterPassword -
+        PUT --> /voteCandidate/:id -
+        
+
+    
+
+
+
+                
+
+
+   
+
+
+
+
+
