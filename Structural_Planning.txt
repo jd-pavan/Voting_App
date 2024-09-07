@@ -69,7 +69,7 @@ Schema:
                     Password = String
                     Role = String
 
-    User ------>    Name = String
+    Candidate ->    Name = String
                     Mobile = number
                     isVerfied = Boolean
                     OTP = Number
@@ -77,17 +77,21 @@ Schema:
                     Addhar_No = Number
                     State = String
                     Party_Name = String 
+                    SUb_Party_Name = String 
                     Password = String
+                    isVoted = Boolean
                     Role = String
 
     Voter ------>   Name = String
                     Mobile = number
+                    age = Number
                     isVerfied = Boolean
                     OTP = Number
                     Email = String
                     Addhar_No = Number
                     State = String
                     Password = String
+                    isVoted = Boolean
                     Role = String
 
     Parties ---->   Party_Name = String
